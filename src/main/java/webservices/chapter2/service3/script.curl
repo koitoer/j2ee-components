@@ -1,0 +1,13 @@
+curl --request GET http://localhost:8182/adages/
+curl --request GET http://localhost:8182/adages/xml/
+curl --request GET http://localhost:8182/adages/json/
+curl --request GET http://localhost:8182/adages/xml/2
+curl --request POST --data "words=This is a test" http://localhost:8182/adages/create
+curl --request DELETE http://localhost:8182/adages/delete/6
+
+
+If is deployed on the server
+curl --request GET http://localhost:8080/web-services/restlet-adages/
+curl --request GET http://localhost:8080/web-services/restlet-adages/xml
+curl --request GET http://localhost:8080/web-services/restlet-adages/json
+curl --request POST --data "words=This is a test" http://localhost:8080/web-services/restlet-adages/create

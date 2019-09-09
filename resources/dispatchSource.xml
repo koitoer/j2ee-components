@@ -1,0 +1,6 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ran="http://random.service.soap.ws.jax.koitoer.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ran:next1/>
+   </soapenv:Body>
+</soapenv:Envelope>

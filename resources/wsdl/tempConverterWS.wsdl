@@ -1,0 +1,78 @@
+<definitions xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://tempConvert.service.server.soap.ws.jax.koitoer.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://tempConvert.service.server.soap.ws.jax.koitoer.com/" name="TempConvertService">
+<types>
+<xs:schema xmlns:tns="http://tempConvert.service.server.soap.ws.jax.koitoer.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://tempConvert.service.server.soap.ws.jax.koitoer.com/">
+<xs:element name="c2f" type="tns:c2f"/>
+<xs:element name="c2fResponse" type="tns:c2fResponse"/>
+<xs:element name="f2c" type="tns:f2c"/>
+<xs:element name="f2cResponse" type="tns:f2cResponse"/>
+<xs:complexType name="f2c">
+<xs:sequence>
+<xs:element name="arg0" type="xs:float"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="f2cResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:float"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="c2f">
+<xs:sequence>
+<xs:element name="arg0" type="xs:float"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="c2fResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:float"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+</types>
+<message name="f2c">
+<part name="parameters" element="tns:f2c"/>
+</message>
+<message name="f2cResponse">
+<part name="parameters" element="tns:f2cResponse"/>
+</message>
+<message name="c2f">
+<part name="parameters" element="tns:c2f"/>
+</message>
+<message name="c2fResponse">
+<part name="parameters" element="tns:c2fResponse"/>
+</message>
+<portType name="TempConvert">
+<operation name="f2c">
+<input wsam:Action="http://tempConvert.service.server.soap.ws.jax.koitoer.com/TempConvert/f2cRequest" message="tns:f2c"/>
+<output wsam:Action="http://tempConvert.service.server.soap.ws.jax.koitoer.com/TempConvert/f2cResponse" message="tns:f2cResponse"/>
+</operation>
+<operation name="c2f">
+<input wsam:Action="http://tempConvert.service.server.soap.ws.jax.koitoer.com/TempConvert/c2fRequest" message="tns:c2f"/>
+<output wsam:Action="http://tempConvert.service.server.soap.ws.jax.koitoer.com/TempConvert/c2fResponse" message="tns:c2fResponse"/>
+</operation>
+</portType>
+<binding name="TempConvertPortBinding" type="tns:TempConvert">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<operation name="f2c">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="c2f">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+</binding>
+<service name="TempConvertService">
+<port name="TempConvertPort" binding="tns:TempConvertPortBinding">
+<soap:address location="https://localhost:8443/jax-ws/soap-webservice/tempConverterWS"/>
+</port>
+</service>
+</definitions>

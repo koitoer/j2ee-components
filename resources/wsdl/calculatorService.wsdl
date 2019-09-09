@@ -1,0 +1,36 @@
+<definitions xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://service.addressing.soap.ws.jax.koitoer.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://service.addressing.soap.ws.jax.koitoer.com/" name="CalculatorServiceImplService">
+<types>
+<xsd:schema>
+<xsd:import namespace="http://service.addressing.soap.ws.jax.koitoer.com/" schemaLocation="http://localhost:9999/calculator?xsd=1"/>
+</xsd:schema>
+</types>
+<message name="add">
+<part name="parameters" element="tns:add"/>
+</message>
+<message name="addResponse">
+<part name="parameters" element="tns:addResponse"/>
+</message>
+<portType name="CalculatorService">
+<operation name="add">
+<input wsam:Action="http://service.addressing.soap.ws.jax.koitoer.com/CalculatorService/addRequest" message="tns:add"/>
+<output wsam:Action="http://service.addressing.soap.ws.jax.koitoer.com/CalculatorService/addResponse" message="tns:addResponse"/>
+</operation>
+</portType>
+<binding name="CalculatorServiceImplPortBinding" type="tns:CalculatorService">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<operation name="add">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+</binding>
+<service name="CalculatorServiceImplService">
+<port name="CalculatorServiceImplPort" binding="tns:CalculatorServiceImplPortBinding">
+<soap:address location="http://localhost:9999/calculator"/>
+</port>
+</service>
+</definitions>

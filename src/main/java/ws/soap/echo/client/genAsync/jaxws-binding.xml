@@ -1,0 +1,15 @@
+<bindings
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns="http://java.sun.com/xml/ns/jaxws">
+    
+    <bindings node="wsdl:definitions">
+        <package name="com.koitoer.jax.ws.soap.echo.client.genAsync"/>
+        <enableAsyncMapping>true</enableAsyncMapping>
+    </bindings>
+    
+</bindings>
+
+<!-- Generate classes using 
+C:\Users\Koitoer\Desktop>wsimport -b jaxws-binding.xml -p com.koitoer.jax.ws.soap.echo.client.genAsync
+	 -keep http://localhost:9999/echo?wsdl
+ -->

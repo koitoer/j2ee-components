@@ -1,0 +1,11 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Header>
+  </s:Header>
+  <s:Body>
+    <MyOperation xmlns="http://tempuri.org">
+      <MyValue>Some Value</MyValue>
+    </MyOperation>
+  </s:Body>
+</s:Envelope>
+
+http://localhost:9999/myService POST

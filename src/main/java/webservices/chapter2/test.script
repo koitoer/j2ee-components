@@ -1,0 +1,7 @@
+http://localhost:8080/web-services/resourcesA/
+http://localhost:8080/web-services/resourcesA/json
+http://localhost:8080/web-services/resourcesA/plain
+
+To create the schema1.xsd
+>> schemagen Adage.java
+>> xjc schema1.xsd

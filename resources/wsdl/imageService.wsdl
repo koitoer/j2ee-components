@@ -1,0 +1,189 @@
+<definitions xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://image.service.soap.ws.jax.koitoer.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://image.service.soap.ws.jax.koitoer.com/" name="ImageServiceImplService">
+<types>
+<xs:schema xmlns:tns="http://image.service.soap.ws.jax.koitoer.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://image.service.soap.ws.jax.koitoer.com/">
+
+<xs:element name="downloadFile" type="tns:downloadFile"></xs:element>
+
+<xs:element name="downloadFileResponse" type="tns:downloadFileResponse"></xs:element>
+
+<xs:element name="getImage" type="tns:getImage"></xs:element>
+
+<xs:element name="getImageResponse" type="tns:getImageResponse"></xs:element>
+
+<xs:element name="uploadBigFile" type="tns:uploadBigFile"></xs:element>
+
+<xs:element name="uploadBigFileResponse" type="tns:uploadBigFileResponse"></xs:element>
+
+<xs:element name="uploadBinaryDate" type="tns:uploadBinaryDate"></xs:element>
+
+<xs:element name="uploadBinaryDateResponse" type="tns:uploadBinaryDateResponse"></xs:element>
+
+<xs:element name="uploadImage" type="tns:uploadImage"></xs:element>
+
+<xs:element name="uploadImageResponse" type="tns:uploadImageResponse"></xs:element>
+
+<xs:complexType name="getImage">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getImageResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:base64Binary" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="uploadBigFile">
+<xs:sequence>
+<xs:element name="arg0" type="xs:base64Binary" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="uploadBigFileResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="downloadFile">
+<xs:sequence></xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="downloadFileResponse">
+<xs:sequence>
+<xs:element name="return" type="xsd:hexBinary" minOccurs="0" xmime:expectedContentTypes="application/octet-stream" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" ></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="uploadImage">
+<xs:sequence>
+<xs:element name="arg0" type="xs:base64Binary" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="uploadImageResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="uploadBinaryDate">
+<xs:sequence>
+<xs:element name="arg0" type="xs:base64Binary" nillable="true" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="uploadBinaryDateResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+</types>
+<message name="uploadBigFile">
+<part name="parameters" element="tns:uploadBigFile"/>
+</message>
+<message name="uploadBigFileResponse">
+<part name="parameters" element="tns:uploadBigFileResponse"/>
+</message>
+<message name="uploadBinaryDate">
+<part name="parameters" element="tns:uploadBinaryDate"/>
+</message>
+<message name="uploadBinaryDateResponse">
+<part name="parameters" element="tns:uploadBinaryDateResponse"/>
+</message>
+<message name="getImage">
+<part name="parameters" element="tns:getImage"/>
+</message>
+<message name="getImageResponse">
+<part name="parameters" element="tns:getImageResponse"/>
+</message>
+<message name="uploadImage">
+<part name="parameters" element="tns:uploadImage"/>
+</message>
+<message name="uploadImageResponse">
+<part name="parameters" element="tns:uploadImageResponse"/>
+</message>
+<message name="downloadFile">
+<part name="parameters" element="tns:downloadFile"/>
+</message>
+<message name="downloadFileResponse">
+<part name="parameters" element="tns:downloadFileResponse"/>
+</message>
+<portType name="ImageService">
+<operation name="uploadBigFile">
+<input wsam:Action="http://image.service.soap.ws.jax.koitoer.com/ImageService/uploadBigFileRequest" message="tns:uploadBigFile"/>
+<output wsam:Action="http://image.service.soap.ws.jax.koitoer.com/ImageService/uploadBigFileResponse" message="tns:uploadBigFileResponse"/>
+</operation>
+<operation name="uploadBinaryDate">
+<input wsam:Action="http://image.service.soap.ws.jax.koitoer.com/ImageService/uploadBinaryDateRequest" message="tns:uploadBinaryDate"/>
+<output wsam:Action="http://image.service.soap.ws.jax.koitoer.com/ImageService/uploadBinaryDateResponse" message="tns:uploadBinaryDateResponse"/>
+</operation>
+<operation name="getImage">
+<input wsam:Action="http://image.service.soap.ws.jax.koitoer.com/ImageService/getImageRequest" message="tns:getImage"/>
+<output wsam:Action="http://image.service.soap.ws.jax.koitoer.com/ImageService/getImageResponse" message="tns:getImageResponse"/>
+</operation>
+<operation name="uploadImage">
+<input wsam:Action="http://image.service.soap.ws.jax.koitoer.com/ImageService/uploadImageRequest" message="tns:uploadImage"/>
+<output wsam:Action="http://image.service.soap.ws.jax.koitoer.com/ImageService/uploadImageResponse" message="tns:uploadImageResponse"/>
+</operation>
+<operation name="downloadFile">
+<input wsam:Action="http://image.service.soap.ws.jax.koitoer.com/ImageService/downloadFileRequest" message="tns:downloadFile"/>
+<output wsam:Action="http://image.service.soap.ws.jax.koitoer.com/ImageService/downloadFileResponse" message="tns:downloadFileResponse"/>
+</operation>
+</portType>
+<binding name="ImageServiceImplPortBinding" type="tns:ImageService">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<operation name="uploadBigFile">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="uploadBinaryDate">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getImage">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="uploadImage">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="downloadFile">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/mtomBP/mtom"/>
+</output>
+</operation>
+</binding>
+<service name="ImageServiceImplService">
+<port name="ImageServiceImplPort" binding="tns:ImageServiceImplPortBinding">
+<soap:address location="http://localhost:9998/imageService"/>
+</port>
+</service>
+</definitions>

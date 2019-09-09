@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.addressing.soap.ws.jax.koitoer.com/">
+  <soapenv:Header xmlns:wsa="http://www.w3.org/2005/08/addressing">
+    <MessageID xmlns="http://www.w3.org/2005/08/addressing">uuid:49ea7cc7-932d-4551-ae42-1273a864ecf3</MessageID>
+    <wsa:Action soapenv:mustUnderstand="1">http://addnumbers.org/input</wsa:Action>
+    <wsa:ReplyTo soapenv:mustUnderstand="1">
+      <wsa:Address>http://localhost:8889/calculator</wsa:Address>
+      <wsa:ReferenceParameters>Parameters</wsa:ReferenceParameters>
+    </wsa:ReplyTo>
+    <wsa:From soapenv:mustUnderstand="1">
+      <wsa:Address>http://localhost:8889/originURL</wsa:Address>
+    </wsa:From>
+    <wsa:FaultTo soapenv:mustUnderstand="1">
+      <wsa:Address>http://localhost:8889/faulToURL</wsa:Address>
+      <wsa:ReferenceParameters>FaultParameters</wsa:ReferenceParameters>
+    </wsa:FaultTo>
+  </soapenv:Header>
+  <soapenv:Body>
+    <ser:add>
+         <param1>1</param1>
+         <param2>1</param2>
+      </ser:add>
+  </soapenv:Body>
+</soapenv:Envelope>
+
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+  <S:Header>
+    <To xmlns="http://www.w3.org/2005/08/addressing">http://localhost:8889/calculator</To>
+    <Action xmlns="http://www.w3.org/2005/08/addressing" S:mustUnderstand="1">http://addnumbers.org/output</Action>
+    <MessageID xmlns="http://www.w3.org/2005/08/addressing">uuid:032788e8-975e-4479-b525-330046bfb889</MessageID>
+    <RelatesTo xmlns="http://www.w3.org/2005/08/addressing">uuid:49ea7cc7-932d-4551-ae42-1273a864ecf3</RelatesTo>
+  </S:Header>
+  <S:Body>
+    <ns2:addResponse xmlns:ns2="http://service.addressing.soap.ws.jax.koitoer.com/">
+      <return>2</return>
+    </ns2:addResponse>
+  </S:Body>
+</S:Envelope>

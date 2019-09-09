@@ -1,0 +1,50 @@
+<xs:schema xmlns:tns="http://image.service.soap.ws.jax.koitoer.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://image.service.soap.ws.jax.koitoer.com/">
+<xs:element name="getImage" type="tns:getImage"/>
+<xs:element name="getImageResponse" type="tns:getImageResponse"/>
+<xs:element name="uploadBigFile" type="tns:uploadBigFile"/>
+<xs:element name="uploadBigFileResponse" type="tns:uploadBigFileResponse"/>
+<xs:element name="uploadBinaryDate" type="tns:uploadBinaryDate"/>
+<xs:element name="uploadBinaryDateResponse" type="tns:uploadBinaryDateResponse"/>
+<xs:element name="uploadImage" type="tns:uploadImage"/>
+<xs:element name="uploadImageResponse" type="tns:uploadImageResponse"/>
+<xs:complexType name="getImage">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getImageResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:base64Binary" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="uploadBigFile">
+<xs:sequence>
+<xs:element name="arg0" type="xs:base64Binary" minOccurs="0" xmime:expectedContentTypes="application/octet-stream" xmlns:xmime="http://www.w3.org/2005/05/xmlmime" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="uploadBigFileResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="uploadImage">
+<xs:sequence>
+<xs:element name="arg0" type="xs:base64Binary" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="uploadImageResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="uploadBinaryDate">
+<xs:sequence>
+<xs:element name="arg0" type="xs:base64Binary" nillable="true" minOccurs="0" xmime:expectedContentTypes="application/octet-stream" xmlns:xmime="http://www.w3.org/2005/05/xmlmime"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="uploadBinaryDateResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

@@ -1,0 +1,2 @@
+wsimport -p com.koitoer.webservices.chapter4.client.wsimport.async 
+	-keep http://localhost:8080/web-services/soap-webservice/randService/?wsdl -b customAsync.xml

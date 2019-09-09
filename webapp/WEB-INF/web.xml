@@ -1,0 +1,49 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<web-app>
+
+	<listener>
+		<listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
+	</listener>
+	
+	<servlet>
+		<servlet-name>wsservlet</servlet-name>
+		<servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>wsservlet</servlet-name>
+		 <url-pattern>/soap-webservice/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Servlet for testing purpose -->
+	<servlet>
+	 	<servlet-class>com.koitoer.jax.ws.servlet.TestService</servlet-class>
+	 	<servlet-name>TestService</servlet-name>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>TestService</servlet-name>
+		<url-pattern>/testServlet/*</url-pattern>
+	</servlet-mapping>
+	
+	<security-role>
+		<role-name>koitoerUser</role-name>
+	</security-role>
+	
+	<security-constraint>
+		<web-resource-collection>
+			<url-pattern>/soap-webservice/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>koitoerUser</role-name>
+		</auth-constraint>
+		<user-data-constraint>
+			<transport-guarantee>NONE</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+	
+	<login-config>
+		<auth-method>BASIC</auth-method>
+	</login-config>
+
+</web-app>
